@@ -1,0 +1,305 @@
+/* ===================================================================
+   KEYFRAMES, SCROLL-REVEALS & HARDWARE-ACCELERATED ANIMATIONS
+   Ultra-Modern Dark Theme Portfolio
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1. HERO SEQUENTIAL DRIFT-UP AND FADE-IN ON LOAD
+   ------------------------------------------------------------------- */
+@keyframes driftUpFade {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: driftUpFade 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.hero-stagger-1 { animation-delay: 0.1s; }
+.hero-stagger-2 { animation-delay: 0.25s; }
+.hero-stagger-3 { animation-delay: 0.4s; }
+.hero-stagger-4 { animation-delay: 0.55s; }
+.hero-stagger-5 { animation-delay: 0.7s; }
+.hero-stagger-6 { animation-delay: 0.85s; }
+
+/* -------------------------------------------------------------------
+   2. SCROLL-TRIGGERED REVEALS (SLIDE IN FROM OPPOSITE SIDES)
+   ------------------------------------------------------------------- */
+.reveal-init {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: 
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-from-left {
+  transform: translate3d(-70px, 0, 0);
+}
+
+.slide-from-right {
+  transform: translate3d(70px, 0, 0);
+}
+
+.slide-from-bottom {
+  transform: translate3d(0, 50px, 0);
+}
+
+.zoom-in-card {
+  transform: scale(0.92) translate3d(0, 20px, 0);
+}
+
+/* Active Triggered State via IntersectionObserver */
+.revealed {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* -------------------------------------------------------------------
+   3. PULSING & AMBIENT ANIMATIONS
+   ------------------------------------------------------------------- */
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 8px currentColor;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+    box-shadow: 0 0 16px currentColor;
+  }
+}
+
+@keyframes pulseBeacon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.7);
+    transform: scale(0.95);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 245, 212, 0);
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 245, 212, 0);
+    transform: scale(0.95);
+  }
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes radarPing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4.5);
+    opacity: 0;
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, 12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes floatAvatarSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+.float-slow {
+  animation: floatAvatarSlow 6s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------------------
+   4. NEW ADVANCED ANIMATION SUITE (CURSOR, ORBIT, TERMINAL, SCANLINES)
+   ------------------------------------------------------------------- */
+
+/* Custom Cybernetic Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px var(--accent-cyan);
+  transition: transform 0.08s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(0, 240, 255, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.15);
+}
+
+.custom-cursor.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.8);
+  background-color: var(--accent-teal);
+  box-shadow: 0 0 18px var(--accent-teal);
+}
+
+.cursor-follower.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.4);
+  border-color: rgba(0, 245, 212, 0.7);
+  background: rgba(0, 245, 212, 0.08);
+}
+
+/* Floating Orbit Badges on Avatar */
+@keyframes floatBadge1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-6px, -10px) rotate(-2deg); }
+}
+
+@keyframes floatBadge2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(8px, -12px) rotate(3deg); }
+}
+
+@keyframes floatBadge3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-8px, 8px) rotate(-1.5deg); }
+}
+
+@keyframes floatBadge4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6px, 10px) rotate(2deg); }
+}
+
+.orbit-badge-1 { animation: floatBadge1 4.5s ease-in-out infinite; }
+.orbit-badge-2 { animation: floatBadge2 5.2s ease-in-out infinite 0.7s; }
+.orbit-badge-3 { animation: floatBadge3 4.8s ease-in-out infinite 1.2s; }
+.orbit-badge-4 { animation: floatBadge4 5.6s ease-in-out infinite 1.8s; }
+
+/* Card Shimmer Wave */
+@keyframes cardShimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.shimmer-trigger {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-trigger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.shimmer-trigger:hover::after {
+  animation: cardShimmer 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Video Scanline and Static Effect */
+@keyframes scanlineAnim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.scanline-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Terminal Cursor and Output Fade */
+@keyframes termCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--accent-cyan);
+  vertical-align: middle;
+  animation: termCursor 0.9s infinite;
+}
+
+/* Glowing Border Rotation */
+@keyframes rotateBorderGrad {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.glow-cycle {
+  animation: rotateBorderGrad 12s linear infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

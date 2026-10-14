@@ -1,0 +1,81 @@
+/* ===================================================================
+   DESIGN TOKENS & SYSTEM VARIABLES
+   Ultra-Modern Dark Theme Portfolio
+   =================================================================== */
+
+:root {
+  /* Color Palette - Deep Dark Surfaces */
+  --bg-primary: #060911;
+  --bg-secondary: #0a0f1d;
+  --bg-surface: #0e1526;
+  --bg-surface-elevated: #131b2e;
+  
+  /* Glassmorphism Surfaces */
+  --glass-bg: rgba(14, 21, 38, 0.65);
+  --glass-bg-hover: rgba(20, 30, 55, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(0, 240, 255, 0.3);
+  --glass-border-focus: rgba(0, 245, 212, 0.5);
+  --glass-blur: blur(20px);
+  --glass-subtle: rgba(255, 255, 255, 0.03);
+
+  /* Vibrant Neon Interactive Accents */
+  --accent-cyan: #00f0ff;
+  --accent-cyan-rgb: 0, 240, 255;
+  --accent-teal: #00f5d4;
+  --accent-teal-rgb: 0, 245, 212;
+  --accent-violet: #8b5cf6;
+  --accent-violet-rgb: 139, 92, 246;
+  --accent-magenta: #f43f5e;
+  --accent-blue: #3b82f6;
+
+  /* Radiant Gradients */
+  --gradient-accent: linear-gradient(135deg, #00f0ff 0%, #00f5d4 50%, #8b5cf6 100%);
+  --gradient-cyan-teal: linear-gradient(135deg, #00f0ff 0%, #00f5d4 100%);
+  --gradient-violet-cyan: linear-gradient(135deg, #8b5cf6 0%, #00f0ff 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+
+  /* Typography & Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #060911;
+
+  /* Font Families */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', 'JetBrains Mono', monospace;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Shadows & Neon Glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --glow-cyan-sm: 0 0 15px rgba(0, 240, 255, 0.25);
+  --glow-cyan-md: 0 0 30px rgba(0, 240, 255, 0.4);
+  --glow-teal-sm: 0 0 15px rgba(0, 245, 212, 0.25);
+  --glow-teal-md: 0 0 30px rgba(0, 245, 212, 0.45);
+  --glow-card-hover: 0 12px 35px -5px rgba(0, 240, 255, 0.15);
+
+  /* Spacing & Layout */
+  --nav-height: 70px;
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transitions & Micro-Interactions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
